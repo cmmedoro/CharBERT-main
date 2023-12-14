@@ -24,6 +24,8 @@ import requests
 from tqdm.auto import tqdm
 from contextlib import contextmanager
 import transformers
+import nltk
+nltk.download('punkt')
 #from . import __version__
 
 logger = logging.getLogger(__name__)  # pylint: disable=invalid-name
