@@ -184,7 +184,7 @@ def convert_examples_to_features(examples,
             tokens = [cls_token] + tokens
             label_ids = [pad_token_label_id] + label_ids
             segment_ids = [cls_token_segment_id] + segment_ids
-        print("Update if CLS token at the end ", len(label_ids)
+        print("Update if CLS token at the end ", len(label_ids))
         input_ids = tokenizer.convert_tokens_to_ids(tokens)
         assert len(input_ids) == len(tokens)
 
@@ -204,7 +204,7 @@ def convert_examples_to_features(examples,
             input_mask += ([0 if mask_padding_with_zero else 1] * padding_length)
             segment_ids += ([pad_token_segment_id] * padding_length)
             label_ids += ([pad_token_label_id] * padding_length)
-        print("Zero-pad up to sequence length ", len(label_ids)
+        print("Zero-pad up to sequence length ", len(label_ids))
         assert len(input_ids) == max_seq_length
         assert len(input_mask) == max_seq_length
         assert len(segment_ids) == max_seq_length
