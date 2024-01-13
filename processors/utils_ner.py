@@ -206,6 +206,8 @@ def convert_examples_to_features(examples,
         assert len(input_ids) == max_seq_length
         assert len(input_mask) == max_seq_length
         assert len(segment_ids) == max_seq_length
+        print(label_ids)
+        print(len(label_ids)
         assert len(label_ids) == max_seq_length
 
         #convert input_ids to char_input_ids
