@@ -120,6 +120,7 @@ def convert_examples_to_features(examples,
 
     features = []
     for (ex_index, example) in enumerate(examples):
+        print("Index ", ex_index)
         if ex_index % 10000 == 0:
             logger.info("Writing example %d of %d", ex_index, len(examples))
 
@@ -194,6 +195,7 @@ def convert_examples_to_features(examples,
 
         # Zero-pad up to the sequence length.
         padding_length = max_seq_length - len(input_ids)
+        print("Padding length", padding_length)
         if pad_on_left:
             input_ids = ([pad_token] * padding_length) + input_ids
             input_mask = ([0 if mask_padding_with_zero else 1] * padding_length) + input_mask
