@@ -135,7 +135,7 @@ def convert_examples_to_features(examples,
             tokens.extend(word_tokens)
             # Use the real label id for the first token of the word, and padding ids for the remaining tokens
             label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
-            print("immediate ", len(label_ids))
+        print("immediate ", len(label_ids))
             #if len(word_tokens) > 1:
                 #label_ids.extend([pad_token_label_id] * len(word_tokens))
             #    label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
