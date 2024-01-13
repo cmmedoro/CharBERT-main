@@ -169,7 +169,7 @@ def convert_examples_to_features(examples,
         # the entire model is fine-tuned.
         tokens += [sep_token]
         label_ids += [pad_token_label_id]
-        print("Padded: ", len(label_ids)
+        print("Padded: ", len(label_ids))
         if sep_token_extra:
             # roberta uses an extra separator b/w pairs of sentences
             tokens += [sep_token]
