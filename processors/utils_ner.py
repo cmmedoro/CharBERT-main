@@ -120,7 +120,7 @@ def convert_examples_to_features(examples,
 
     features = []
     for (ex_index, example) in enumerate(examples):
-        print("Index ", ex_index)
+        #print("Index ", ex_index)
         if ex_index % 10000 == 0:
             logger.info("Writing example %d of %d", ex_index, len(examples))
 
@@ -136,7 +136,7 @@ def convert_examples_to_features(examples,
             tokens.extend(word_tokens)
             # Use the real label id for the first token of the word, and padding ids for the remaining tokens
             label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
-        print("immediate ", len(label_ids))
+        #print("immediate ", len(label_ids))
             #if len(word_tokens) > 1:
                 #label_ids.extend([pad_token_label_id] * len(word_tokens))
             #    label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
@@ -170,7 +170,7 @@ def convert_examples_to_features(examples,
         # the entire model is fine-tuned.
         tokens += [sep_token]
         label_ids += [pad_token_label_id]
-        print("Padded: ", len(label_ids))
+        #print("Padded: ", len(label_ids))
         if sep_token_extra:
             # roberta uses an extra separator b/w pairs of sentences
             tokens += [sep_token]
@@ -185,7 +185,7 @@ def convert_examples_to_features(examples,
             tokens = [cls_token] + tokens
             label_ids = [pad_token_label_id] + label_ids
             segment_ids = [cls_token_segment_id] + segment_ids
-        print("Update if CLS token at the end ", len(label_ids))
+        #print("Update if CLS token at the end ", len(label_ids))
         input_ids = tokenizer.convert_tokens_to_ids(tokens)
         assert len(input_ids) == len(tokens)
 
@@ -195,11 +195,11 @@ def convert_examples_to_features(examples,
 
         # Zero-pad up to the sequence length.
         padding_length = max_seq_length - len(input_ids)
-        #AGGIUNTA TEMPORANEA
+        #AGGIUNTA FORSE TEMPORANEA
         padding_length_lab = max_seq_length - len(label_ids)
         ####################
-        print("Padding length", padding_length)
-        print("Padding length labels", padding_length_lab)
+        #print("Padding length", padding_length)
+        #print("Padding length labels", padding_length_lab)
         if pad_on_left:
             input_ids = ([pad_token] * padding_length) + input_ids
             input_mask = ([0 if mask_padding_with_zero else 1] * padding_length) + input_mask
@@ -212,12 +212,12 @@ def convert_examples_to_features(examples,
             segment_ids += ([pad_token_segment_id] * padding_length)
             #label_ids += ([pad_token_label_id] * padding_length)
             label_ids += ([pad_token_label_id] * padding_length_lab)
-        print("Zero-pad up to sequence length ", len(label_ids))
+        #print("Zero-pad up to sequence length ", len(label_ids))
         assert len(input_ids) == max_seq_length
         assert len(input_mask) == max_seq_length
         assert len(segment_ids) == max_seq_length
-        print(label_ids)
-        print("Before assert", len(label_ids))
+        #print(label_ids)
+        #print("Before assert", len(label_ids))
         assert len(label_ids) == max_seq_length
 
         #convert input_ids to char_input_ids
