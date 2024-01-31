@@ -44,16 +44,32 @@ class CharBertEmbeddings(nn.Module):
         #print(f"all_hiddens shape: {list(all_hiddens.size())}")
         #char_rnn_repr = torch.transpose(all_hiddens, 0, 1)
         #print(f"char_rnn_repr shape: {list(char_rnn_repr.size())}")
-         
-        start_one_hot = nn.functional.one_hot(start_ids, num_classes=char_maxlen)
+
+
+	    
+        char_embeddings_repr = torch.zeros(batch_size, block_size, config.hidden_size/2)
+        for batch, el in  enumerate(start_ids):
+	    for token_number , el2 in el:
+	        start = start_ids[batch][token]
+	        end = end_ids[batch][token]
+	        token_indexes = torch.arange(start, end+1)
+	        indexes_encoded = nn.functional.one_hot(token_indexes, num_classes=char_maxlen)
+	        token_char_embedding = torch.matmul(indexes_encoded.float(), all_hiddens[batch])
+		#token_char_embedding dovrebbe avere dimensione lunghezza token per 384
+	        std, mean = torch.std_mean(token_char_embedding, dim=0)
+	        char_embedding = torch.cat(mean)
+		char_embeddings_repr[batch][token]=char_embedding
+	    
+	#PREVIOUSLY
+        #start_one_hot = nn.functional.one_hot(start_ids, num_classes=char_maxlen)
         #print(f"start_ont_hot shape: {list(start_one_hot.size())}")
-        end_one_hot   = nn.functional.one_hot(end_ids, num_classes=char_maxlen)
+        #end_one_hot   = nn.functional.one_hot(end_ids, num_classes=char_maxlen)
         #print(f"end_ont_hot shape: {list(end_one_hot.size())}")
-        start_hidden  = torch.matmul(start_one_hot.float(), all_hiddens)
+        #start_hidden  = torch.matmul(start_one_hot.float(), all_hiddens)
         #print(f"start_hidden shape: {list(start_hidden.size())}")
-        end_hidden    = torch.matmul(end_one_hot.float(), all_hiddens)
+        #end_hidden    = torch.matmul(end_one_hot.float(), all_hiddens)
         #print(f"end_hidden shape: {list(end_hidden.size())}")
-        char_embeddings_repr = torch.cat([start_hidden, end_hidden], dim=-1)
+        #char_embeddings_repr = torch.cat([start_hidden, end_hidden], dim=-1)
         #print(f"char_embeddings_repr shape: {list(char_embeddings_repr.size())}")
         return char_embeddings_repr
 
