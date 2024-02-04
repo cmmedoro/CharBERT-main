@@ -47,7 +47,7 @@ class CharBertEmbeddings(nn.Module):
 
 
 	    
-        char_embeddings_repr = torch.zeros(batch_size, block_size, config.hidden_size/2)
+        char_embeddings_repr = torch.zeros(batch_size, config.hidden_size/2, config.hidden_size)
         for batch, el in  enumerate(start_ids):
             for token_number, el2 in el:
                 start = start_ids[batch][token]
