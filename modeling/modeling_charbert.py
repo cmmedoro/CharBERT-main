@@ -58,7 +58,7 @@ class CharBertEmbeddings(nn.Module):
                 #token_char_embedding dovrebbe avere dimensione lunghezza token per 384
                 std, mean = torch.std_mean(token_char_embedding, dim=0)
                 char_embedding = torch.cat((mean, std))
-                char_embeddings_repr[batch][token]=char_embedding
+                char_embeddings_repr[batch][token_number]=char_embedding
 	    
 	#PREVIOUSLY
         #start_one_hot = nn.functional.one_hot(start_ids, num_classes=char_maxlen)
