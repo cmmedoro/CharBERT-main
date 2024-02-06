@@ -51,11 +51,11 @@ class CharBertEmbeddings(nn.Module):
         for batch, el in  enumerate(start_ids):
             print(el)
             print(batch)
-            for token_number, el2 in el:
+            for token_number, el2 in enumerate(el):
                 print(token_number)
                 print(el2)
-                start = start_ids[batch][token]
-                end = end_ids[batch][token]
+                start = start_ids[batch][token_number]
+                end = end_ids[batch][token_number]
                 token_indexes = torch.arange(start, end+1)
                 indexes_encoded = nn.functional.one_hot(token_indexes, num_classes=char_maxlen)
                 token_char_embedding = torch.matmul(indexes_encoded.float(), all_hiddens[batch])
