@@ -49,11 +49,7 @@ class CharBertEmbeddings(nn.Module):
 	    
         char_embeddings_repr = torch.zeros(batch_size, 384, 768)
         for batch, el in  enumerate(start_ids):
-            print(el)
-            print(batch)
             for token_number, el2 in enumerate(el):
-                print(token_number)
-                print(el2)
                 start = start_ids[batch][token_number]
                 end = end_ids[batch][token_number]
                 token_indexes = torch.arange(start, end+1)
@@ -61,7 +57,7 @@ class CharBertEmbeddings(nn.Module):
                 token_char_embedding = torch.matmul(indexes_encoded.float(), all_hiddens[batch])
                 #token_char_embedding dovrebbe avere dimensione lunghezza token per 384
                 std, mean = torch.std_mean(token_char_embedding, dim=0)
-                char_embedding = torch.cat(mean, std)
+                char_embedding = torch.cat((mean, std))
                 char_embeddings_repr[batch][token]=char_embedding
 	    
 	#PREVIOUSLY
