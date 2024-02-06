@@ -66,7 +66,7 @@ class CharBertEmbeddings(nn.Module):
         end_hidden    = torch.matmul(end_one_hot.float(), all_hiddens)
         start_end = torch.stack([start_hidden, end_hidden], dim=0)
         std, mean = torch.std_mean(start_end, dim=0)
-        char_embedding_repr = torch.cat([mean, std], dim=-1)
+        char_embeddings_repr = torch.cat([mean, std], dim=-1)
 	    
 	#PREVIOUSLY
         #start_one_hot = nn.functional.one_hot(start_ids, num_classes=char_maxlen)
