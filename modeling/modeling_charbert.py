@@ -46,8 +46,8 @@ class CharBertEmbeddings(nn.Module):
         #print(f"char_rnn_repr shape: {list(char_rnn_repr.size())}")
 
 
-	    
-        char_embeddings_repr = torch.zeros(batch_size, 384, 768)
+	#Questo ci metterebbe 57 ore   
+        """char_embeddings_repr = torch.zeros(batch_size, 384, 768)
         for batch, el in  enumerate(start_ids):
             for token_number, el2 in enumerate(el):
                 start = start_ids[batch][token_number]
@@ -57,8 +57,16 @@ class CharBertEmbeddings(nn.Module):
                 token_char_embedding = torch.matmul(indexes_encoded.float(), all_hiddens[batch])
                 #token_char_embedding dovrebbe avere dimensione lunghezza token per 384
                 std, mean = torch.std_mean(token_char_embedding, dim=0)
-                char_embedding = torch.cat((mean, std))
-                char_embeddings_repr[batch][token_number]=char_embedding
+                char_embedding = torch.cat([mean, std])
+                char_embeddings_repr[batch][token_number]=char_embedding"""
+
+        start_one_hot = nn.functional.one_hot(start_ids, num_classes=char_maxlen)
+        end_one_hot   = nn.functional.one_hot(end_ids, num_classes=char_maxlen)
+        start_hidden  = torch.matmul(start_one_hot.float(), all_hiddens)
+        end_hidden    = torch.matmul(end_one_hot.float(), all_hiddens)
+        char_embeddings_repr = torch.stack([start_hidden, end_hidden], dim=-1)
+        std, mean = torch.std_mean(char_embeddings_repr, dim=-1)
+        char_embedding = torch.cat([mean, std], dim=-1)
 	    
 	#PREVIOUSLY
         #start_one_hot = nn.functional.one_hot(start_ids, num_classes=char_maxlen)
