@@ -49,6 +49,7 @@ class CharBertEmbeddings(nn.Module):
 	#Questo ci mette 3 ore  
         char_embeddings_repr = torch.zeros(batch_size, 384, 768)
         for batch, el in  enumerate(start_ids):
+        print(f"batch: {batch}, start ids: {start_ids.size()} {start_ids}, end ids: {end_ids.size()} {end_ids}")
             for token_number, el2 in enumerate(el):
                 start = start_ids[batch][token_number]
                 end = end_ids[batch][token_number]
@@ -59,6 +60,8 @@ class CharBertEmbeddings(nn.Module):
                 std, mean = torch.std_mean(token_char_embedding, dim=0)
                 char_embedding = torch.cat([mean, std])
                 char_embeddings_repr[batch][token_number]=char_embedding
+                print(f"start-end-indexes: {start},{end},{token_indexes},{token_indexes}")
+                print(f"hidden: {all_hiddens},{all_hiddens[batch]}, {all_hiddens[batch].size()}\n char embedding:{token_char_embedding},{std},{mean},{char_embeddings_repr[batch][token_number]}")
 
 	#altro metodo, prende sempre solo primo e ultimo carattere ma ne calcola media e deviazione standard
         """start_one_hot = nn.functional.one_hot(start_ids, num_classes=char_maxlen)
