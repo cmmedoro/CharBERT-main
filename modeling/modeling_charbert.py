@@ -58,7 +58,7 @@ class CharBertEmbeddings(nn.Module):
                 token_char_embedding = torch.matmul(indexes_encoded.float().to(device='cuda'), all_hiddens[batch].to(device='cuda'))
                 #token_char_embedding dovrebbe avere dimensione lunghezza token per 384
                 if start == end:
-                    char_embedding = torch.cat([token_char_embedding[0], token_char_embedding[0])
+                    char_embedding = torch.cat([token_char_embedding[0], token_char_embedding[0]])
 		else:
                     std, mean = torch.std_mean(token_char_embedding, dim=0)
                     char_embedding = torch.cat([mean, std])
