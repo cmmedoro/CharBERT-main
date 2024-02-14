@@ -57,11 +57,15 @@ class CharBertEmbeddings(nn.Module):
                 indexes_encoded = nn.functional.one_hot(token_indexes, num_classes=char_maxlen)
                 token_char_embedding = torch.matmul(indexes_encoded.float().to(device='cuda'), all_hiddens[batch].to(device='cuda'))
                 #token_char_embedding dovrebbe avere dimensione lunghezza token per 384
-                std, mean = torch.std_mean(token_char_embedding, dim=0)
-                char_embedding = torch.cat([mean, std])
+                if start == end:
+                    char_embedding = torch.cat([token_char_embedding[0], token_char_embedding[0])
+		else:
+                    std, mean = torch.std_mean(token_char_embedding, dim=0)
+                    char_embedding = torch.cat([mean, std])
                 char_embeddings_repr[batch][token_number]=char_embedding
-                print(f"start-end-indexes: {start},{end},{token_indexes},{token_indexes}")
-                print(f"hidden: {all_hiddens},{all_hiddens[batch]}, {all_hiddens[batch].size()}\n char embedding:{token_char_embedding},{std},{mean},{char_embeddings_repr[batch][token_number]}")
+                #print(f"start-end-indexes: {start},{end},{token_indexes},{token_indexes}")
+                #print(f"hidden: {all_hiddens},{all_hiddens[batch]}, {all_hiddens[batch].size()}\n char embedding:{token_char_embedding},{std},{mean},{char_embeddings_repr[batch][token_number]}")
+                print(f"progressing: {char_embeddings_repr})
 
 	#altro metodo, prende sempre solo primo e ultimo carattere ma ne calcola media e deviazione standard
         """start_one_hot = nn.functional.one_hot(start_ids, num_classes=char_maxlen)
