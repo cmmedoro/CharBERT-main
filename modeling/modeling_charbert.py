@@ -49,7 +49,7 @@ class CharBertEmbeddings(nn.Module):
 	#Questo ci mette 3 ore  
         char_embeddings_repr = torch.zeros(batch_size, 384, 768)
         for batch, el in  enumerate(start_ids):
-        print(f"batch: {batch}, start ids: {start_ids.size()} {start_ids}, end ids: {end_ids.size()} {end_ids}")
+            print(f"batch: {batch}, start ids: {start_ids.size()} {start_ids}, end ids: {end_ids.size()} {end_ids}")
             for token_number, el2 in enumerate(el):
                 start = start_ids[batch][token_number]
                 end = end_ids[batch][token_number]
