@@ -65,7 +65,7 @@ class CharBertEmbeddings(nn.Module):
                 char_embeddings_repr[batch][token_number]=char_embedding
                 #print(f"start-end-indexes: {start},{end},{token_indexes},{token_indexes}")
                 #print(f"hidden: {all_hiddens},{all_hiddens[batch]}, {all_hiddens[batch].size()}\n char embedding:{token_char_embedding},{std},{mean},{char_embeddings_repr[batch][token_number]}")
-                print(f"progressing: {char_embeddings_repr})
+                print(f"progressing: {char_embeddings_repr}")
 
 	#altro metodo, prende sempre solo primo e ultimo carattere ma ne calcola media e deviazione standard
         """start_one_hot = nn.functional.one_hot(start_ids, num_classes=char_maxlen)
