@@ -89,7 +89,7 @@ class CharBertEmbeddings(nn.Module):
         #print(f"end_hidden shape: {list(end_hidden.size())}")
         #char_embeddings_repr = torch.cat([start_hidden, end_hidden], dim=-1)
         #print(f"char_embeddings_repr shape: {list(char_embeddings_repr.size())}")
-        #print(char_embeddings_repr)
+        print(char_embeddings_repr)
         #print(char_embeddings_repr.size())
         return char_embeddings_repr.to(device='cuda')
 
