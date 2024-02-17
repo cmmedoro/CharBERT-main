@@ -47,8 +47,8 @@ class CharBertEmbeddings(nn.Module):
 
 
 	#Questo ci mette 3 ore 
-        print(start_ids.size()[1])
-        print(all_hiddens.size()[2])
+        print(f"start ids size second dimension: {start_ids.size()[1]}")
+        print(f"all hiddens size second dimension: {all_hiddens.size()[2]}")
         char_embeddings_repr = torch.zeros(batch_size, 384, 768)
         for batch, el in  enumerate(start_ids):
             #print(f"batch: {batch}, start ids: {start_ids.size()} {start_ids}, end ids: {end_ids.size()} {end_ids}")
