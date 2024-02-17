@@ -46,7 +46,9 @@ class CharBertEmbeddings(nn.Module):
         #print(f"char_rnn_repr shape: {list(char_rnn_repr.size())}")
 
 
-	#Questo ci mette 3 ore  
+	#Questo ci mette 3 ore 
+        print(start_ids.size()[1])
+        print(all_hiddens.size()[2])
         char_embeddings_repr = torch.zeros(batch_size, 384, 768)
         for batch, el in  enumerate(start_ids):
             #print(f"batch: {batch}, start ids: {start_ids.size()} {start_ids}, end ids: {end_ids.size()} {end_ids}")
