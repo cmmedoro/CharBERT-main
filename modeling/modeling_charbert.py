@@ -47,9 +47,9 @@ class CharBertEmbeddings(nn.Module):
 
 
 	#Questo ci mette 3 ore 
-        print(f"start ids size second dimension: {start_ids.size()[1]}")
-        print(f"all hiddens size second dimension: {all_hiddens.size()[2]}")
-        char_embeddings_repr = torch.zeros(batch_size, 384, 768)
+        #print(f"start ids size second dimension: {start_ids.size()[1]}")
+        #print(f"all hiddens size second dimension: {all_hiddens.size()[2]}")
+        char_embeddings_repr = torch.zeros(batch_size, start_ids.size()[1], 2*all_hiddens.size()[2])
         for batch, el in  enumerate(start_ids):
             #print(f"batch: {batch}, start ids: {start_ids.size()} {start_ids}, end ids: {end_ids.size()} {end_ids}")
             #print(f"all_hiddens: {all_hiddens}")
@@ -89,7 +89,7 @@ class CharBertEmbeddings(nn.Module):
         #print(f"end_hidden shape: {list(end_hidden.size())}")
         #char_embeddings_repr = torch.cat([start_hidden, end_hidden], dim=-1)
         #print(f"char_embeddings_repr shape: {list(char_embeddings_repr.size())}")
-        print(char_embeddings_repr)
+        #print(char_embeddings_repr)
         #print(char_embeddings_repr.size())
         return char_embeddings_repr.to(device='cuda')
 
