@@ -10,7 +10,7 @@ This repository contains resources of the following [COLING 2020](https://www.co
 
 
 ## Models
-The origianl work primarily provided two models. Here are the download links:   
+The original work primarily provided two models. Here are the download links:   
 pre-trained CharBERT based on BERT [charbert-bert-wiki](https://drive.google.com/file/d/1rF5_LbA2qIHuehnNepGmjz4Mu6OqEzYT/view?usp=sharing)    
 pre-trained CharBERT based on RoBERTa [charbert-roberta-wiki](https://drive.google.com/file/d/1tkO7_EH1Px7tXRxNDu6lzr_y8b4Q709f/view?usp=sharing)  
 Here our checkpoints:
