@@ -14,9 +14,13 @@ The original work primarily provided two models. Here are the download links:
 pre-trained CharBERT based on BERT [charbert-bert-wiki](https://drive.google.com/file/d/1rF5_LbA2qIHuehnNepGmjz4Mu6OqEzYT/view?usp=sharing)    
 pre-trained CharBERT based on RoBERTa [charbert-roberta-wiki](https://drive.google.com/file/d/1tkO7_EH1Px7tXRxNDu6lzr_y8b4Q709f/view?usp=sharing)  
 Here our checkpoints:
+
 pre-trained CharBERT on English Wikipedia (3 epochs) [en_wiki_3epochs](https://drive.google.com/file/d/1niddqAc5yfnjyqQRCBlEWe2aKt-4Gsfn/view?usp=sharing)
+
 pre-trained CharBERT on English Wikipedia (6 epochs) [en_wiki_6epochs](https://drive.google.com/file/d/1SwGVWVSiH9_ugoymzmZi0j0EgoW4EznI/view?usp=sharing)
+
 fine-tuned CharBERT on English Twitter [twitter_charbert](https://drive.google.com/file/d/1vJgMe4sOa5BWllNFrnUqQgxquu4BErbg/view?usp=sharing)
+
 multilingual CharBERT on English and Italian Wikipedia [it_en_multilingual](https://drive.google.com/file/d/1h9plzoZtPcy6exUFWOko_-ZiE90jM1Xs/view?usp=sharing)
 
 
