@@ -23,7 +23,9 @@ fine-tuned CharBERT on English Twitter [twitter_charbert](https://drive.google.c
 
 multilingual CharBERT on English and Italian Wikipedia [it_en_multilingual](https://drive.google.com/file/d/1h9plzoZtPcy6exUFWOko_-ZiE90jM1Xs/view?usp=sharing)
 
+pre-trained CharBERT with different concatenation at character level [no_concat_wiki]()
+
 
 ## Usage
-You may use CharBERT_notebook to reproduce the experiments we did. Note that the majority of the datasets are dowloadable from HuggingFace, whereas the Twitter dataset used for fine-tuning the model is available here [Twitter_dataset](https://drive.google.com/file/d/1KdX3DOmJZj5m_AmwAZWNfGiUumdgTx2t/view?usp=sharing)
+You may use CharBERT_notebook to reproduce the experiments we did. Note that the majority of the datasets are dowloadable from HuggingFace, whereas the Twitter dataset used for fine-tuning the model is available here [Twitter_dataset](https://drive.google.com/file/d/1KdX3DOmJZj5m_AmwAZWNfGiUumdgTx2t/view?usp=sharing) and CoNLL-2003 is available here [CoNLL-2003](https://drive.google.com/file/d/10POkHvLQyTqVp-twG7SqDdFCy1weWfLe/view?usp=sharing)
 
