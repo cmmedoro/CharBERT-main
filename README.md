@@ -6,7 +6,7 @@
  
 # Neural Contextual Embedding: CharBERT study and extensions 
 
-This repository contains resources of the following [COLING 2020](https://www.coling2020.org) paper and the notebook for reproducing the experiments of our work.  
+This repository contains resources of the following [COLING 2020](https://www.coling2020.org) paper and the notebook (CharBERT_experiments) for reproducing the experiments of our work.  
 
 
 ## Models
@@ -27,5 +27,5 @@ pre-trained CharBERT with different concatenation at character level [no_concat_
 
 
 ## Usage
-You may use CharBERT_notebook to reproduce the experiments we did. Note that the majority of the datasets are dowloadable from HuggingFace, whereas the Twitter dataset used for fine-tuning the model is available here [Twitter_dataset](https://drive.google.com/file/d/1KdX3DOmJZj5m_AmwAZWNfGiUumdgTx2t/view?usp=sharing) and CoNLL-2003 is available here [CoNLL-2003](https://drive.google.com/file/d/10POkHvLQyTqVp-twG7SqDdFCy1weWfLe/view?usp=sharing)
+You may use CharBERT_experiments to reproduce the experiments we did. Note that the majority of the datasets are dowloadable from HuggingFace, whereas the Twitter dataset used for fine-tuning the model is available here [Twitter_dataset](https://drive.google.com/file/d/1KdX3DOmJZj5m_AmwAZWNfGiUumdgTx2t/view?usp=sharing) and CoNLL-2003 is available here [CoNLL-2003](https://drive.google.com/file/d/10POkHvLQyTqVp-twG7SqDdFCy1weWfLe/view?usp=sharing)
 
