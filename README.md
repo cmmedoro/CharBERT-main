@@ -23,7 +23,7 @@ fine-tuned CharBERT on English Twitter [twitter_charbert](https://drive.google.c
 
 multilingual CharBERT on English and Italian Wikipedia [it_en_multilingual](https://drive.google.com/file/d/1h9plzoZtPcy6exUFWOko_-ZiE90jM1Xs/view?usp=sharing)
 
-pre-trained CharBERT with different concatenation at character level [no_concat_wiki]()
+pre-trained CharBERT with different concatenation at character level [no_concat_wiki](https://drive.google.com/file/d/1VrfcXmN--hLRJohuS535O8OauSsYeswH/view?usp=sharing)
 
 
 ## Usage
